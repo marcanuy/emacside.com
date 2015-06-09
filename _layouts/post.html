@@ -1,0 +1,71 @@
+---
+layout: default
+comments: true
+---
+<div class="post">
+
+  <article class="post-content">
+
+      <header class="post-header">
+	  <h1 class="post-title">{{ page.header }} </h1>
+	  <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+      </header>
+      <div>
+        <p>{{ page.description }}</p>
+      </div>
+
+      <div>
+
+	{% for example in page.examples %}
+	<h3 class="post-title">{{ example.title }} </h3>
+	<p>{{ example.description }}</p>
+	<video width="{{ example.video_width }}" height="{{ example.video_height }}" autoplay="autoplay" loop="loop">
+	  <source src="/screencasts/{{ example.video_filename }}" type="video/{{ example.video_type }}">
+	    Your browser does not support the video tag.
+	</video> 
+        <div>
+	  <h4>Transcription</h4>
+   	  {% highlight emacs %}
+	  {{ example.keys }}
+	  {% endhighlight %}
+	  {% endfor %}
+	</div>
+      </div>
+      
+      <div>
+	<h3>Further Reading</h3>
+	<ul>
+	  {% for package in page.packages %}
+	  <li> {{ package | first }} </li>
+	  <ul>
+	  {% for item in package[1].urls %}
+	    <li>
+	    <a href="{{ item.url }}">{{ item.title }}</a>
+	    </li>
+	  {% endfor %}
+	  </ul>
+	  {% endfor %}
+	</ul>
+      </div>
+
+      <div>
+	  <h3>Also known as:</h3>
+	  <ul>
+	      {% for editor in page.editors %}
+	      {% for item in editor %}
+	      
+	      {% assign editor_id = editor[0] %}
+	      {% if item.title %} {% comment %}omit first blank line {% endcomment %}
+	      <li>
+		  <a href="{{item.url}}" rel="nofollow">{{ item.title }}</a> in <em>{{ site.data.editors[editor_id].name }} </em>
+	          <blockquote>{{ item.description }}</blockquote>
+	      </li>
+	      {% endif %}
+	      {% endfor %}
+	      {% endfor %}
+	  </ul>
+      </div>
+      {{ content }}
+  </article>
+
+</div>

@@ -1,0 +1,13 @@
+editor-sublime-text:
+  name: Sublime Text
+  url: "http://sublimetext.com/"
+  header: Sublime Text features, in Emacs
+editor-writeroom:
+  name: WriteRoom
+  url: "http://www.hogbaysoftware.com/products/writeroom"
+package-writer-mode:
+  urls:
+    - "https://github.com/joostkremers/writeroom-mode"
+    - "http://www.emacswiki.org/emacs/WriteRoom"
+
+

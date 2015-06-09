@@ -1,0 +1,41 @@
+# Site settings
+title: EmacSide
+email: hi@emacside.com
+description: > # this means to ignore newlines until "baseurl:"
+  Exploring the IDE side of Emacs. Common tasks among IDEs
+  performed with Emacs to enable one to code more efficiently,
+  showing those who get in touch for the first time with Emacs,
+  the versality of the best text editor ever.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://emacside.com" # the base hostname & protocol for your site
+twitter_username: emacside
+#github_username:  emacside
+
+# Outputting
+permalink: none
+
+# Build settings
+markdown: kramdown
+
+disqus_id: emacside
+
+tag:
+  page:
+    dir: editor
+    title: "%s features, in Emacs"
+    header: "%s features, in Emacs"
+    description: "How to do some of the %s cool tricks in Emacs"
+    metadesc: "%s tasks equivalents in Emacs"
+  index:
+    dir: editors
+    title: ""
+    header: ""
+    description: ""
+    metadesc_format: ""
+      
+#gems: [jekyll-tagging]
+# This will require each of these gems automatically.
+
+# collections:
+#  features:
+#    output: true
