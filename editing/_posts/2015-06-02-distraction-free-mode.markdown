@@ -1,12 +1,14 @@
 ---
-
 layout: post
 title:  "Distraction-free writing in Emacs"
 header: "Distraction-free writing environment"
 description: "When your screen gets filled with windows, frames, status icons, browsers, and you just want to focus in coding, its time to activate the <code>writeroom-mode</code> to minimize distractions. Writeroom-mode is a full screen mode that let you focus in just one buffer, removing everything else from the screen."
 date:   2015-06-02 10:51:14
-author: marcanuy
-tags: editor-sublime-text
+#author: marcanuy
+tags: 
+  - editor-sublime-text
+  - editor-writeroom
+  - package-writeroom-mode
 editors:
     editor-sublime-text:
         title:       "Distraction Free Mode"
@@ -16,20 +18,23 @@ editors:
         title: "WriteRoom"
         description: "Distraction free writing. WriteRoom is a full screen writing environment."
         url: "http://www.hogbaysoftware.com/products/writeroom"
-packages:
-    writer-mode:
-        urls:
-        - title: "https://github.com/joostkremers/writeroom-mode"
-          url: "https://github.com/joostkremers/writeroom-mode"
-        - title: "http://www.emacswiki.org/emacs/WriteRoom"
-          url: "http://www.emacswiki.org/emacs/WriteRoom"
-examples:
+commands:
+  - keys:     C-x 1
+    function: delete-other-windows
+    desc:     "Dismiss all other windows" 
+  - keys:     
+    function: writeroom-mode
+    desc:     "Minor mode for distraction-free writing"
+screencasts:
 - title: "Showing how writeroom-mode looks"
-  description: "An example to show how <code>writeroom-mode</code> clean the screen after getting the window messed up."
-  video_filename: "writeroom-mode.mp4"
-  video_type: "mp4"
-  video_width: "800"
-  video_height: "452"
+  usecase: 
+    - "Dismiss all other windows"
+    - "Clean the entire screen with <code>writeroom-mode</code> and display just one buffer."
+  video:
+    filename: "writeroom-mode.mp4"
+    type: mp4
+    width: 740
+    height: 418
   keys: |
     C-x 3 split-window-right *GNU Emacs*
     C-x 2 split-window-below *GNU Emacs*
