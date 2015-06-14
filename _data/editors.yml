@@ -1,9 +1,0 @@
-editor-sublime-text:
-  name: Sublime Text
-  url: "http://sublimetext.com/"
-  header: Sublime Text features, in Emacs
-editor-writeroom:
-  name: WriteRoom
-  url: "http://www.hogbaysoftware.com/products/writeroom"
-  header: WriteRoom distract-free writing
-

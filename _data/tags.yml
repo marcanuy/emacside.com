@@ -2,12 +2,25 @@ editor-sublime-text:
   name: Sublime Text
   url: "http://sublimetext.com/"
   header: Sublime Text features, in Emacs
+editor-textmate:
+  name: TextMate
+  url: "http://macromates.com"
+  header: TextMate features, in Emacs
 editor-writeroom:
   name: WriteRoom
   url: "http://www.hogbaysoftware.com/products/writeroom"
-package-writer-mode:
+package-imenu-mode:
+  urls:
+    - "https://www.gnu.org/software/emacs/manual/html_node/emacs/Imenu.html"
+    - "http://www.emacswiki.org/emacs/ImenuMode"
+package-occur-mode:
+  urls:
+    - "http://emacswiki.org/emacs/OccurMode"
+    - "http://www.gnu.org/software/emacs/manual/html_node/emacs/Other-Repeating-Search.html"
+package-which-function-mode:
+  urls:
+    - "https://www.gnu.org/software/emacs/manual/html_node/emacs/Which-Function.html"
+package-writeroom-mode:
   urls:
     - "https://github.com/joostkremers/writeroom-mode"
     - "http://www.emacswiki.org/emacs/WriteRoom"
-
-

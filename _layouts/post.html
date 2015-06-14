@@ -12,40 +12,70 @@ comments: true
       </header>
       <div>
         <p>{{ page.description }}</p>
+	<h2 class="post-title"> Overview </h2>
+        <ul> 
+		{% for step in page.usecase %}
+		<li>
+			{{ step }}
+		</li>
+		{% endfor %}
+        </ul>
+
       </div>
 
       <div>
-
-	{% for example in page.examples %}
-	<h3 class="post-title">{{ example.title }} </h3>
-	<p>{{ example.description }}</p>
-	<video width="{{ example.video_width }}" height="{{ example.video_height }}" autoplay="autoplay" loop="loop">
-	  <source src="/screencasts/{{ example.video_filename }}" type="video/{{ example.video_type }}">
+	{% for screencast in page.screencasts %}
+	<h3 class="post-title">{{ screencast.title }}</h3>
+	<h4 class="post-title"> Use case </h4>
+        <ul> 
+		{% for step in screencast.usecase %}
+		<li>
+			{{ step }}
+		</li>
+		{% endfor %}
+        </ul>
+	<video width="{{ screencast.video.width }}" height="{{ screencast.video.height }}" autoplay="autoplay" loop="loop">
+	  <source src="/screencasts/{{ screencast.video.filename }}" type="video/{{ screencast.video.type }}">
 	    Your browser does not support the video tag.
 	</video> 
         <div>
 	  <h4>Transcription</h4>
    	  {% highlight emacs %}
-	  {{ example.keys }}
+	  {{ screencast.keys }}
 	  {% endhighlight %}
 	  {% endfor %}
 	</div>
       </div>
-      
+
+      <div class="commands">
+        <h3>Commands Reference</h3>
+	<ul>
+          {% for command in page.commands %}
+            <li>
+              <kbd>{{ command.keys }} </kbd>
+              <code> {{ command.function }} </code>
+              <blockquote>{{ command.desc }}</blockquote>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
       <div>
 	<h3>Further Reading</h3>
 	<ul>
-	  {% for package in page.packages %}
-	  <li> {{ package | first }} </li>
+	  {% for tag in page.tags %}
+          {% assign tag_prefix = tag | split: '-' | first %}
+          {% if tag_prefix == 'package' %}
+	  <li> {{ tag }} </li>
 	  <ul>
-	  {% for item in package[1].urls %}
+	  {% for url in site.data.tags[tag].urls %}
 	    <li>
-	    <a href="{{ item.url }}">{{ item.title }}</a>
+	    <a href="{{ url }}">{{ url }}</a>
 	    </li>
 	  {% endfor %}
 	  </ul>
+          {% endif %}
 	  {% endfor %}
-	</ul>
+        </ul>
       </div>
 
       <div>
@@ -53,11 +83,12 @@ comments: true
 	  <ul>
 	      {% for editor in page.editors %}
 	      {% for item in editor %}
-	      
 	      {% assign editor_id = editor[0] %}
 	      {% if item.title %} {% comment %}omit first blank line {% endcomment %}
 	      <li>
-		  <a href="{{item.url}}" rel="nofollow">{{ item.title }}</a> in <em>{{ site.data.editors[editor_id].name }} </em>
+		  <a href="{{item.url}}" rel="nofollow">{{ item.title }}</a> 
+                  in 
+                  <a href="{{item.url}}"><em>{{ site.data.tags[editor_id].name }} </em></a> 
 	          <blockquote>{{ item.description }}</blockquote>
 	      </li>
 	      {% endif %}
