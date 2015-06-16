@@ -1,3 +1,7 @@
+editor-phpstorm:
+  name: PhpStorm
+  url: "https://www.jetbrains.com/phpstorm/help/phpstorm.html"
+  header: PhpStorm features, in Emacs
 editor-sublime-text:
   name: Sublime Text
   url: "http://sublimetext.com/"
@@ -13,10 +17,18 @@ package-imenu-mode:
   urls:
     - "https://www.gnu.org/software/emacs/manual/html_node/emacs/Imenu.html"
     - "http://www.emacswiki.org/emacs/ImenuMode"
+package-minimap-mode:
+  urls:
+    - "http://www.emacswiki.org/emacs/MiniMap"
+    - "https://github.com/dustinlacewell/emacs-minimap"
 package-occur-mode:
   urls:
     - "http://emacswiki.org/emacs/OccurMode"
     - "http://www.gnu.org/software/emacs/manual/html_node/emacs/Other-Repeating-Search.html"
+package-smartparens:
+  urls:
+    - "https://github.com/Fuco1/smartparens"
+    - "http://www.emacswiki.org/emacs/AutoPairs"
 package-which-function-mode:
   urls:
     - "https://www.gnu.org/software/emacs/manual/html_node/emacs/Which-Function.html"
