@@ -49,7 +49,7 @@ commands:
     desc:     Visit next occurence of searched string and corresponding source code.
 screencasts:
   - # steps: "Several quick ways to jump to a function definition in the current file, searching through possible candidates and returning to the original position. 
-    title: "Using <em>imode</em>"
+    title: "Using imode"
     usecase:   
       - Display a list of all the functions in the current file
       - Browse through the function list
@@ -73,5 +73,35 @@ screencasts:
       Conv
       TAB minibuffer-complete  *Minibuf-1*
       RET minibuffer-complete-and-exit  *Minibuf-1*
-
+  - title: "Browsing functions in a single file with occur-mode"
+    usecase:
+      - Search for the function keyword in a file with <code>M-x occur</code>
+      - Browse through occurences in search result frame from the source code frame - <code>C-M-v</code>, <code>C-M-S-v</code>
+      - Browse through functions jumping between source code with <code>M-g M-n</code>, <code>M-g M-p</code>
+    video:
+      filename: occur-mode.mp4
+      type: mp4
+      width: 740
+      height: 582
+    keys: |
+        M-x execute-extended-command Model.php
+        occur
+        RET minibuffer-complete-and-exit  *Minibuf-1*
+        functionSPC
+        RET exit-minibuffer  *Minibuf-1*
+        Searched 1 buffer; 206 matches for `function '
+        You can run the command `occur' with M-s o
+        Searched 1 buffer; 206 matches for `function '
+        5 * C-M-v scroll-other-window Model.php
+        4 * C-M-S-v scroll-other-window-down Model.php
+        8 * M-g M-n next-error Model.php
+        4 * M-g M-p previous-error Model.php
+        C-x o other-window Model.php
+        3 * C-v scroll-up-command *Occur*
+        C-s isearch-forward *Occur*
+        array
+        2 * C-s isearch-repeat-forward *Occur*
+        <return> isearch-exit *Occur*
+        Mark saved where search started
+        RET occur-mode-goto-occurrence *Occur*
 ---
