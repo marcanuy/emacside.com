@@ -12,7 +12,7 @@ comments: true
       </header>
       <div>
         <p>{{ page.description }}</p>
-	<h2 class="post-title"> Overview </h2>
+	<h2 class="post-title" id="overview"> Overview </h2>
         <ul> 
 		{% for step in page.usecase %}
 		<li>
@@ -20,12 +20,27 @@ comments: true
 		</li>
 		{% endfor %}
         </ul>
+      </div>
 
+      <div>
+	      <h2>Contents</h2>
+	      <ul id="toc" class="nav">
+		      <li><a href="#overview">Overview</a></li>
+		      <li>Alternatives</li>
+		      <ul>
+			      {% for screencast in page.screencasts %}
+			      <li><a href="#{{ screencast.title | replace:' ','-' }}">{{ screencast.title }}</a></li>
+			      {% endfor %}
+		      </ul>
+		      <li><a href="#commands">Commands Reference</a></li>
+		      <li><a href="#reading">Further reading</a></li>
+		      <li><a href="#others">Other editors name</a></li>
+	      </ul>
       </div>
 
       <div>
 	{% for screencast in page.screencasts %}
-	<h3 class="post-title">{{ screencast.title }}</h3>
+	<h3 class="post-title" id="{{ screencast.title | replace:' ','-' }}">{{ screencast.title }}</h3>
 	<h4 class="post-title"> Use case </h4>
         <ul> 
 		{% for step in screencast.usecase %}
@@ -47,8 +62,8 @@ comments: true
 	</div>
       </div>
 
-      <div class="commands">
-        <h3>Commands Reference</h3>
+      <div class="commands" >
+        <h3 id="commands">Commands Reference</h3>
 	<ul>
           {% for command in page.commands %}
             <li>
@@ -60,7 +75,7 @@ comments: true
         </ul>
       </div>
       <div>
-	<h3>Further Reading</h3>
+	<h3 id="reading">Further Reading</h3>
 	<ul>
 	  {% for tag in page.tags %}
           {% assign tag_prefix = tag | split: '-' | first %}
@@ -79,7 +94,7 @@ comments: true
       </div>
 
       <div>
-	  <h3>Also known as:</h3>
+	  <h3 id="others">Also known as:</h3>
 	  <ul>
 	      {% for editor in page.editors %}
 	      {% for item in editor %}
