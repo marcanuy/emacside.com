@@ -14,6 +14,7 @@ date:   2015-06-11 10:51:14
 #author: marcanuy
 tags: 
   - editor-textmate
+  - editor-vim
   - package-imenu-mode
   - package-which-function-mode
   - package-occur-mode
@@ -25,6 +26,10 @@ editors:
          and move the caret to one of these. For keyboard navigation there is also 
          Navigation → Go to Symbol… (⇧⌘T)"
         url:         "https://manual.macromates.com/en/navigation_overview"
+    editor-vim:
+      title:       "FufBufferTag"
+      description: "Searches the tags from the current active buffer :FufBufferTag"
+      url:         "http://www.vim.org/scripts/script.php?script_id=1984"
 commands:
   - keys:
     function: which-function-mode

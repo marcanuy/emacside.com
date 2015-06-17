@@ -10,6 +10,10 @@ editor-textmate:
   name: TextMate
   url: "http://macromates.com"
   header: TextMate features, in Emacs
+editor-vim:
+  name: Vim
+  url: "http://vim.org"
+  header: Vim features, in Emacs
 editor-writeroom:
   name: WriteRoom
   url: "http://www.hogbaysoftware.com/products/writeroom"
