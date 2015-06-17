@@ -19,6 +19,10 @@ tags:
   - package-which-function-mode
   - package-occur-mode
 editors:
+    editor-intellij:
+        title:       "Structure Tool Window"
+        description: "Displays the structure of a file currently opened in the editor"
+        url:         "https://www.jetbrains.com/idea/help/structure-tool-window-file-structure-popup.html"
     editor-textmate:
         title:       "Symbols in the current document"
         description: "For languages that support it, the rightmost pop-up in the status bar shows the current 'symbol'. 

@@ -1,3 +1,11 @@
+editor-eclipse:
+  name: Eclipse
+  url: "http://www.eclipse.org/"
+  header: Eclipse features, in Emacs
+editor-intellij:
+  name: IntelliJ IDEA
+  url: "https://www.jetbrains.com/idea/"
+  header: IntelliJ features, in Emacs
 editor-phpstorm:
   name: PhpStorm
   url: "https://www.jetbrains.com/phpstorm/help/phpstorm.html"
