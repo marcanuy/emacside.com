@@ -103,7 +103,7 @@ comments: true
 	      <li>
 		  <a href="{{item.url}}" rel="nofollow">{{ item.title }}</a> 
                   in 
-                  <a href="{{item.url}}"><em>{{ site.data.tags[editor_id].name }} </em></a> 
+                  <a href="/{{ site.tag['page']['dir'] }}/{{ editor_id }}"><em>{{ site.data.tags[editor_id].name }} </em></a> 
 	          <blockquote>{{ item.description }}</blockquote>
 	      </li>
 	      {% endif %}
