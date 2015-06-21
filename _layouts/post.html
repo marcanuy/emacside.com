@@ -25,20 +25,19 @@ comments: true
       <div>
 	      <h2>Contents</h2>
 	      <ul id="toc" class="nav">
-		      <li><a href="#overview">Overview</a></li>
 		      <li>Alternatives</li>
 		      <ul>
 			      {% for screencast in page.screencasts %}
 			      <li><a href="#{{ screencast.title | replace:' ','-' }}">{{ screencast.title }}</a></li>
 			      {% endfor %}
 		      </ul>
-		      <li><a href="#commands">Commands Reference</a></li>
 		      <li><a href="#reading">Further reading</a></li>
+		      <li><a href="#commands">Useful Commands</a></li>
 		      <li><a href="#others">Other editors name</a></li>
 	      </ul>
       </div>
 
-      <div>
+      <div id="screencasts">
 	{% for screencast in page.screencasts %}
 	<h3 class="post-title" id="{{ screencast.title | replace:' ','-' }}">{{ screencast.title }}</h3>
 	<h4 class="post-title"> Use case </h4>
@@ -58,22 +57,24 @@ comments: true
    	  {% highlight emacs %}
 	  {{ screencast.keys }}
 	  {% endhighlight %}
-	  {% endfor %}
 	</div>
-      </div>
 
-      <div class="commands" >
-        <h3 id="commands">Commands Reference</h3>
-	<ul>
-          {% for command in page.commands %}
+	<div >
+          <h4 id="screencast-commands">Commands Reference</h4>
+	  <ul>
+            {% for command in screencast.commands %}
             <li>
               <kbd>{{ command.keys }} </kbd>
               <code> {{ command.function }} </code>
               <blockquote>{{ command.desc }}</blockquote>
             </li>
-          {% endfor %}
-        </ul>
+            {% endfor %}
+          </ul>
+	</div> <!-- end screencast commands -->
+
+      {% endfor %}<!-- end screencasts -->
       </div>
+
       <div>
 	<h3 id="reading">Further Reading</h3>
 	<ul>
@@ -92,6 +93,19 @@ comments: true
 	  {% endfor %}
         </ul>
       </div>
+
+	<div >
+          <h3 id="commands">Useful Commands</h3>
+	  <ul>
+            {% for command in screencast.commands %}
+            <li>
+              <kbd>{{ command.keys }} </kbd>
+              <code> {{ command.function }} </code>
+              <blockquote>{{ command.desc }}</blockquote>
+            </li>
+            {% endfor %}
+          </ul>
+	</div> <!-- end commands -->
 
       <div>
 	  <h3 id="others">Also known as:</h3>

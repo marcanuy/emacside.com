@@ -22,9 +22,6 @@ commands:
   - keys:     C-x 1
     function: delete-other-windows
     desc:     "Dismiss all other windows" 
-  - keys:     
-    function: writeroom-mode
-    desc:     "Minor mode for distraction-free writing"
 screencasts:
 - title: "Showing how writeroom-mode looks"
   usecase: 
@@ -35,6 +32,10 @@ screencasts:
     type: mp4
     width: 740
     height: 418
+  commands:
+    - keys:     
+      function: writeroom-mode
+      desc:     "Minor mode for distraction-free writing"
   keys: |
     C-x 3 split-window-right *GNU Emacs*
     C-x 2 split-window-below *GNU Emacs*
