@@ -8,7 +8,7 @@ layout: default
   <hr />
   <p class="page-content">Collection of articles to setup an efficient working environment.</p>
   {% include posts_by_category.html %}
-  
+
   <div>
   <h2>Other editors features in Emacs</h2>
   <hr />
@@ -22,4 +22,14 @@ layout: default
       {% endfor %}
   </ul>
   </div>
+
+{% comment %} Locally show drafts posts {% endcomment %}
+{% for post in site.posts  %}  
+{% if post.path contains 'drafts' %}
+<p>
+Draft: <a href="{{ post.url }}">{{post.title}}</a>
+</p>
+{% endif %}
+{% endfor %}
+
 </div>
