@@ -47,8 +47,8 @@ comments: true
 			Your browser does not support the video tag.
 		</video> 
 	</div>
-        <div class="row">
-		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTranscription-{{ forloop.index }}" aria-expanded="false" aria-controls="collapseTranscription-{{ forloop.index }}">
+        <div id="transcription">
+		<button class="btn btn-primary center-block" type="button" data-toggle="collapse" data-target="#collapseTranscription-{{ forloop.index }}" aria-expanded="false" aria-controls="collapseTranscription-{{ forloop.index }}">
 			Video Transcription
 		</button>
 		<div class="collapse" id="collapseTranscription-{{ forloop.index }}">
@@ -101,5 +101,4 @@ comments: true
       </div>
       {{ content }}
   </article>
-
 </div>

@@ -42,7 +42,12 @@ $on-laptop:        800px;
     }
 }
 
-
+#transcription {
+    button {
+        margin-top: $spacing-unit / 2;
+        margin-bottom: $spacing-unit / 2;	
+    }
+}
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
