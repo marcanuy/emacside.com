@@ -32,10 +32,3 @@ tag:
     header: ""
     description: ""
     metadesc_format: ""
-      
-#gems: [jekyll-tagging]
-# This will require each of these gems automatically.
-
-# collections:
-#  features:
-#    output: true

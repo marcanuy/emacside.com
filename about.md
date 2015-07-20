@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+comments: false
 ---
 
 > What is so impressive about that new [proprietary](https://en.wikipedia.org/wiki/Proprietary_software) IDE? I have been doing that in Emacs for years!
