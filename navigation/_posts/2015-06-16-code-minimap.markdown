@@ -18,24 +18,23 @@ editors:
         description: "The minimap feature shows a reduced overview of the entire file in the top-right corner of the screen. The portion of the file visible in the main editor pane is highlighted and clicking or dragging in this view scrolls the editor through the file."
         url:         "https://en.wikipedia.org/wiki/Sublime_Text"
 screencasts:
-  - title: "Showing a sidebar with minimap"
-    usecase:   
-      - Display an embedded minimap of the current source code buffer <code>M-x minimap-create</code>
-      - Browse through the minimap
-      - Close the minimap <code>minimap-kill</code>
-    video:
-      filename: "minimap-mode.mp4"
-      type: mp4
-      width: 740
-      height: 645
-    commands:
-      - keys:
-        function: minimap-create
-        desc:     "Create the minimap sidebar"
-      - keys: 
-        function: minimap-kill
-        desc:     "Kill minimap for current buffer"
-    keys: |
+- title: "Showing a sidebar with minimap"
+  usecase:   
+    - action:   Display an embedded minimap of the current source code buffer
+      key:
+      function: minimap-create
+      desc:     Create the minimap sidebar
+    - action: Browse through the minimap
+    - action: Close the minimap
+      keys: 
+      function: minimap-kill
+      desc:     "Kill minimap for current buffer"
+  video:
+    filename: "minimap-mode.mp4"
+    type: mp4
+    width: 740
+    height: 645
+  keys: |
       M-x execute-extended-command page.rb
       minimap
       TAB minibuffer-complete  *Minibuf-1*

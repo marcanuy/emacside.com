@@ -2,7 +2,7 @@
 layout: post
 title:  "Distraction-free writing in Emacs"
 header: "Distraction-free writing environment"
-description: "When your screen gets filled with windows, frames, status icons, browsers, and you just want to focus in coding, its time to activate the <code>writeroom-mode</code> to minimize distractions. Writeroom-mode is a full screen mode that let you focus in just one buffer, removing everything else from the screen."
+description: "Full screen modes to minimize distractions cleaning the screen from windows, frames, status icons and other programs. Just focus in coding removing everything else from the screen."
 date:   2015-06-02 10:51:14
 #author: marcanuy
 tags: 
@@ -19,23 +19,24 @@ editors:
         description: "Distraction free writing. WriteRoom is a full screen writing environment."
         url: "http://www.hogbaysoftware.com/products/writeroom"
 commands:
-  - keys:     C-x 1
-    function: delete-other-windows
-    desc:     "Dismiss all other windows" 
+  - key
 screencasts:
-- title: "Showing how writeroom-mode looks"
+- title: "Cleaning the screen with writeroom-mode"
   usecase: 
-    - "Dismiss all other windows"
-    - "Clean the entire screen with <code>writeroom-mode</code> and display just one buffer."
+    - action:   Dismiss all other windows
+      key:      C-x 1
+      function: delete-other-windows
+      desc:     Dismiss all other windows
+    - action: Clean the entire screen and display just one buffer with centered text.
+      key:      ""
+      function: writeroom-mode
+      desc:     Minor mode for distraction-free writing
   video:
     filename: "writeroom-mode.mp4"
     type: mp4
     width: 740
     height: 418
-  commands:
-    - keys:     
-      function: writeroom-mode
-      desc:     "Minor mode for distraction-free writing"
+      
   keys: |
     C-x 3 split-window-right *GNU Emacs*
     C-x 2 split-window-below *GNU Emacs*

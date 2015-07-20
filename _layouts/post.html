@@ -10,67 +10,54 @@ comments: true
 	  <h1 class="post-title">{{ page.header }} </h1>
 	  <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
       </header>
-      <div>
-        <p>{{ page.description }}</p>
-	<h2 class="post-title" id="overview"> Overview </h2>
-        <ul> 
-		{% for step in page.usecase %}
-		<li>
-			{{ step }}
-		</li>
-		{% endfor %}
-        </ul>
-      </div>
+      <p>{{ page.description }}</p>
 
-      <div>
-	      <h2>Contents</h2>
-	      <ul id="toc" class="nav">
-		      <li>Alternatives</li>
-		      <ul>
-			      {% for screencast in page.screencasts %}
-			      <li><a href="#{{ screencast.title | replace:' ','-' }}">{{ screencast.title }}</a></li>
-			      {% endfor %}
-		      </ul>
-		      <li><a href="#reading">Further reading</a></li>
-		      <li><a href="#commands">Useful Commands</a></li>
-		      <li><a href="#others">Other editors name</a></li>
-	      </ul>
+      <div class="panel panel-default">
+	      <div class="panel-heading">Content</div>
+	      <div class="list-group">
+		      {% for screencast in page.screencasts %}
+		      <a class="list-group-item" href="#{{ screencast.title | replace:' ','-' }}">{{ screencast.title }}</a>
+		      {% endfor %}
+		      <a class="list-group-item" href="#reading">Further reading</a>
+		      <a class="list-group-item" href="#others">Known as in other editors</a>
+	      </div>
       </div>
 
       <div id="screencasts">
 	{% for screencast in page.screencasts %}
 	<h3 class="post-title" id="{{ screencast.title | replace:' ','-' }}">{{ screencast.title }}</h3>
-	<h4 class="post-title"> Use case </h4>
+	<h4 class="post-title"> Basic flow </h4>
         <ul> 
 		{% for step in screencast.usecase %}
 		<li>
-			{{ step }}
+			{{ step.action }}
+			{% if step.key and step.key != '' %}
+			<kbd data-toggle="tooltip" title="{{ step.desc }}">{{ step.key }} </kbd>
+			{% endif %}
+			{% if step.function and step.function != '' %}
+			<code data-toggle="tooltip" title="{{ step.desc }}"> {{ step.function }} </code>
+			{% endif %}
 		</li>
 		{% endfor %}
         </ul>
-	<video width="{{ screencast.video.width }}" height="{{ screencast.video.height }}" autoplay="autoplay" loop="loop">
-	  <source src="/screencasts/{{ screencast.video.filename }}" type="video/{{ screencast.video.type }}">
-	    Your browser does not support the video tag.
-	</video> 
-        <div>
-	  <h4>Transcription</h4>
-   	  {% highlight emacs %}
-	  {{ screencast.keys }}
-	  {% endhighlight %}
+	{% if screencast.video %}
+	<div align="center" class="embed-responsive embed-responsive-16by9">
+		<video width="{{ screencast.video.width }}" height="{{ screencast.video.height }}" autoplay="autoplay" loop="loop" class="embed-responsive-item">
+			<source src="/screencasts/{{ screencast.video.filename }}" type="video/{{ screencast.video.type }}">
+			Your browser does not support the video tag.
+		</video> 
 	</div>
-
-	<div >
-          <h4 id="screencast-commands">Commands Reference</h4>
-	  <ul>
-            {% for command in screencast.commands %}
-            <li>
-              <kbd>{{ command.keys }} </kbd>
-              <code> {{ command.function }} </code>
-              <blockquote>{{ command.desc }}</blockquote>
-            </li>
-            {% endfor %}
-          </ul>
-	</div> <!-- end screencast commands -->
+        <div class="row">
+		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTranscription-{{ forloop.index }}" aria-expanded="false" aria-controls="collapseTranscription-{{ forloop.index }}">
+			Video Transcription
+		</button>
+		<div class="collapse" id="collapseTranscription-{{ forloop.index }}">
+   			{% highlight emacs %}
+			{{ screencast.keys }}
+			{% endhighlight %}
+		</div>
+	</div> <!-- end transcription -->
+	{% endif %}
 
       {% endfor %}<!-- end screencasts -->
       </div>
@@ -92,20 +79,7 @@ comments: true
           {% endif %}
 	  {% endfor %}
         </ul>
-      </div>
-
-	<div >
-          <h3 id="commands">Useful Commands</h3>
-	  <ul>
-            {% for command in screencast.commands %}
-            <li>
-              <kbd>{{ command.keys }} </kbd>
-              <code> {{ command.function }} </code>
-              <blockquote>{{ command.desc }}</blockquote>
-            </li>
-            {% endfor %}
-          </ul>
-	</div> <!-- end commands -->
+      </div> <!-- end further reading -->
 
       <div>
 	  <h3 id="others">Also known as:</h3>
