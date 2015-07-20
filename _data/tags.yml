@@ -49,6 +49,9 @@ package-occur-mode:
   urls:
     - "http://emacswiki.org/emacs/OccurMode"
     - "http://www.gnu.org/software/emacs/manual/html_node/emacs/Other-Repeating-Search.html"
+package-project-explorer:
+  urls:
+    - "https://github.com/sabof/project-explorer"
 package-smartparens:
   urls:
     - "https://github.com/Fuco1/smartparens"
