@@ -24,8 +24,8 @@ comments: false
   </ul>
   </div>
 
-{% comment %} Locally show drafts posts {% endcomment %}
-{% for post in site.posts  %}  
+{% comment %} Show drafts locally when running the server with --drafts {% endcomment %}
+{% for post in site.posts  %}
 {% if post.path contains 'drafts' %}
 <p>
 Draft: <a href="{{ post.url }}">{{post.title}}</a>
