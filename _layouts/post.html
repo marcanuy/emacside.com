@@ -43,7 +43,7 @@ comments: true
 		</li>
 		{% endfor %}
         </ul>
-	{% if screencast.video %}
+	{% if (screencast.video.filename | size) > 0 %}
 	<div align="center" class="embed-responsive embed-responsive-16by9">
 		<video width="{{ screencast.video.width }}" height="{{ screencast.video.height }}" autoplay="autoplay" loop="loop" class="embed-responsive-item">
 			<source src="/screencasts/{{ screencast.video.filename }}" type="video/{{ screencast.video.type }}">
