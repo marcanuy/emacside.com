@@ -5,27 +5,54 @@ permalink: /about/
 comments: false
 ---
 
-> What is so impressive about that new [proprietary](https://en.wikipedia.org/wiki/Proprietary_software) IDE? I have been doing that in Emacs for years!
+> I consider that the Golden Rule requires that if I like a program I
+> must share it with other people who like it.
+> <footer class="blockquote-footer"> Richard Stallman in 
+> <cite title="The GNU Manifesto">The GNU Manifesto</cite></footer>
+{: class="blockquote" cite="https://www.gnu.org/gnu/manifesto.en.html"}
 
-GNU Emacs is well known for its versatility and flexibility, unfortunately there is also a big steep learning curve compared to others editors, but it is also that "complexity" which in the end makes it so powerful and enables you to achieve anything with the editor in the long run.
+GNU Emacs is well known for its versatility and flexibility,
+unfortunately there is also a big steep learning curve compared to
+others editors, but it is also that *complexity* which in the end 
+makes it so powerful and enables you to achieve anything with the
+editor in the long run.
 
 *EmacSide* aims to show, in a clean and easy way:
 
-* How to achieve with GNU Emacs the most common IDE tasks.
+* The most common tasks of any IDE in GNU Emacs.
 
-* How to have the same features *(a.k.a. industry demands)* other text editors have.
+* How to have the same features other text editors have.
 
 * How almost any other IDE feature can be done with GNU Emacs.
 
-* Lets you incorporate new tricks to your software development workflow in GNU Emacs.
+* Lets you incorporate new tricks to your software development 
+workflow using GNU Emacs.
 
-***EmacSide is not a package nor about elisp code, it aims to show beginner Emacs users how to achieve specific tasks with the available packages.***
+## Screencasts
 
-Colophon
-------
+Videos are recorded mainly with
+[recordMyDesktop](http://recordmydesktop.sourceforge.net/about.php)
+and [screenkey](https://github.com/wavexx/screenkey).
 
-This website is built with [Jekyll](http://jekyllrb.com).
-Uses [kramdown](http://kramdown.gettalong.org/syntax.html) Markdown converter, [Pygments](http://pygments.org) for syntax highlighting, [YAML](http://yaml.org/spec/1.2/spec.html) data serialization language, [recordMyDesktop](http://recordmydesktop.sf.net/) for recording screencasts.
+The Emacs window size should have an original aspect ratio of
+16:9, 1280x720 pixels
+[recommended](https://support.google.com/youtube/answer/6375112).
+
+Currently started with `$ emacs --geometry 138x37`.
+
+Setup:
+
+- Screenkeys
+  - Preferences
+    - Delete key: Baked
+    - Modifiers mode: Emacs
+- (optional) `florence` to also display a keyboard on the screen.
+
+## Colophon
+
+This website is built with [Jekyll](http://jekyllrb.com), its source
+code is located in [github.com/marcanuy/emacside.com](https://github.com/marcanuy/emacside.com/).
+
 
 {::comment}abbreviations in kramdown style{:/comment}
 
@@ -34,3 +61,49 @@ Uses [kramdown](http://kramdown.gettalong.org/syntax.html) Markdown converter, [
 *[GNU]: GNU is not Unix
 *[Emacs]: Editor MACroS
 *[elisp]: Emacs Lisp
+
+## Emacs Logo generator
+
+Generated with [jp2a](https://github.com/cslarsen/jp2a) - JPEG to ASCII image
+converter.
+
+~~~ bash
+$ jp2a -i emacsLogo.jpg
+~~~
+
+<pre>
+           ...',,;,;:::;..                             .'',,';,,;,.        
+        ',:';;:l;',;,:dxcdc;'.;                  ,'''cxOldcccldKklc:,      
+      ',.'c;:ol;;','''''',,'..                    ...'...''',;ckx00k'l     
+    .;..'';;:,.                                             .'clc00k'.:    
+   .;..',,,,,             .''.'',,,;'    ';cc:;'              ;ldcO0x.:    
+   :..',:;;,            ,,.'c:loxxkx:c:xOK000K00K;,            o:xxxd:,'   
+  ',..'lkll           '',lo0XXXNXNNKXNKXokOOXNXNNXKc'          c;:dOxo,'   
+  ;..';oo'c         .':ok0XXNNKXNNNNKO0oloolcOXXKNXKx;'        ;;o00kc,.   
+  ;..coxKd::      ;ooOKXXOxo,;..;;c.  .lc:cod:,;dodOXXxl.    .,l0NXK:':    
+  .:':dkKKx:l'..'dKXKc,.     ;;oc     . .,:l. .'.'   ;kXxd:okxOXX0kxl:'    
+   ';,;c0X0d0dlcxX0;       ,o'xc    .   . .. .0:. '    ,lkxdKXXOkol;l'     
+    .:;clodoKKOdcO        . ,   . ..,;  ..   :;...'     .xlOkc::;::,       
+      ,;,;;l,l':;.         ..   koONX:.      .cOXk,      .o:,::,''         
+        .'l'',.'.          .    ...:, .        ;l,,        c.              
+           ..',:          .:                    ..;:.       ;              
+              ..         ...             .        .. ....'...;c            
+             '        .c:   .         .';......    .....                   
+            ..  ...',,l               'o ,,.  .,.      ..                  
+           ,.'';.;.   .,                 .;.:.          .                  
+                 ,    .,           ....      .      .c:.                   
+                 ,      :           .:            ,ll;                     
+                 '      ....          .              .'                    
+                  '        ,,.         ..''.,...,;ckc.                     
+                  ..       '.                       ,                      
+                   ..        ...       . .,:ldxd:'..                       
+                    ..        ..  .      .,lo':,                           
+                      .'      .'..;..      ., .,                           
+                        . .      ..,,.     .,.'.                           
+                                 ..  ,;  .;:.                              
+                                ,.  .'..''d                                
+                                      ..';x.                               
+                                           .                               
+                                                                           
+</pre>
+
