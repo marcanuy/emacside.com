@@ -6,6 +6,7 @@ description: "Showing basic browsing of the current file functions definitions."
 date:   2015-06-11 10:51:14
 #author: marcanuy
 tags: 
+  - editor-intellij
   - editor-textmate
   - editor-vim
   - package-imenu-mode
