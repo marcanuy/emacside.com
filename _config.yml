@@ -1,0 +1,32 @@
+# Site settings
+title: EmacSide
+email: hi@emacside.com
+description: > # this means to ignore newlines until "baseurl:"
+  Exploring the IDE side of Emacs. Common use cases
+  and popular tasks among IDEs performed with Emacs.
+baseurl: ""
+url: "http://emacside.com"
+twitter_username: emacside
+github_username:  marcanuy/emacside.com
+
+# Outputting
+permalink: none
+
+# Build settings
+markdown: kramdown
+
+disqus_id: emacside
+
+tag:
+  page:
+    dir: tag
+    title: "%s features, in Emacs"
+    header: "%s features, in Emacs"
+    description: "How to do some of the %s cool tricks in Emacs"
+    metadesc: "%s tasks equivalents in Emacs"
+  index:
+    dir: tags
+    title: ""
+    header: ""
+    description: ""
+    metadesc_format: ""

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EmacSide</title>
+    <description>Exploring the IDE side of Emacs. Common use cases and popular tasks among IDEs performed with Emacs.
+</description>
+    <link>http://emacside.com/</link>
+    <atom:link href="http://emacside.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 08 Nov 2016 22:25:24 +0000</pubDate>
+    <lastBuildDate>Tue, 08 Nov 2016 22:25:24 +0000</lastBuildDate>
+    <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Code minimap in Emacs</title>
+        <description>
+</description>
+        <pubDate>Tue, 16 Jun 2015 14:10:11 +0000</pubDate>
+        <link>http://emacside.com/navigation/code-minimap.html</link>
+        <guid isPermaLink="true">http://emacside.com/navigation/code-minimap.html</guid>
+        
+        <category>editor-sublime-text</category>
+        
+        <category>package-minimap-mode</category>
+        
+        
+        <category>navigation</category>
+        
+      </item>
+    
+      <item>
+        <title>Parens Pairs in Emacs</title>
+        <description>
+</description>
+        <pubDate>Tue, 16 Jun 2015 11:31:14 +0000</pubDate>
+        <link>http://emacside.com/editing/parens-pairs.html</link>
+        <guid isPermaLink="true">http://emacside.com/editing/parens-pairs.html</guid>
+        
+        <category>editor-phpstorm</category>
+        
+        <category>editor-textmate</category>
+        
+        <category>package-smartparens</category>
+        
+        
+        <category>editing</category>
+        
+      </item>
+    
+      <item>
+        <title>Moving between functions within a file in Emacs</title>
+        <description>
+</description>
+        <pubDate>Thu, 11 Jun 2015 10:51:14 +0000</pubDate>
+        <link>http://emacside.com/navigation/moving-within-function-definitions-in-current-file.html</link>
+        <guid isPermaLink="true">http://emacside.com/navigation/moving-within-function-definitions-in-current-file.html</guid>
+        
+        <category>editor-intellij</category>
+        
+        <category>editor-textmate</category>
+        
+        <category>editor-vim</category>
+        
+        <category>package-imenu-mode</category>
+        
+        <category>package-which-function-mode</category>
+        
+        <category>package-occur-mode</category>
+        
+        
+        <category>navigation</category>
+        
+      </item>
+    
+      <item>
+        <title>Distraction-free writing in Emacs</title>
+        <description>
+</description>
+        <pubDate>Tue, 02 Jun 2015 10:51:14 +0000</pubDate>
+        <link>http://emacside.com/editing/distraction-free-mode.html</link>
+        <guid isPermaLink="true">http://emacside.com/editing/distraction-free-mode.html</guid>
+        
+        <category>editor-sublime-text</category>
+        
+        <category>editor-writeroom</category>
+        
+        <category>package-writeroom-mode</category>
+        
+        
+        <category>editing</category>
+        
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+
+<h1 class="post-header">
+    {{ page.header }}
+</h1>
+<p>
+{{ page.description }}
+</p>
+<hr />
+{% include posts_by_category.html filter_tag=page.tag %}
+
+<p>
+    <a href="/{{ site.tag['index']['dir'] }}/">View all tags</a>
+</p>

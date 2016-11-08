@@ -1,0 +1,45 @@
+<ul class="post-list">
+    {% for category in site.categories %}
+    <li>
+	<h2>{{ category | first | capitalize }}</h2>
+	<ul class="post-list">
+	  {% for posts in category %}
+	    {% for post in posts %}
+	      {% if post.url %}
+	        {% if include.filter_tag %}
+	          {% if post.editors contains include.filter_tag %}
+	            <li>
+		      <a class="post-link" href="{{ post.url }}">
+		        {{ post.editors[include.filter_tag].title }}, in Emacs
+		      </a>
+		    {% for tag in post.editors %}
+		      <span class="post-meta">
+		        {% assign tag_id = tag[0] %}
+	                {{ site.data.editors[tag_id].name | replace:' ','' }}
+		      </span>
+		    {% endfor %}
+	            </li>
+	          {% endif %}
+	        {% else %}
+                <li>
+		<a class="post-link" href="{{ post.url }}">
+		    {% if post.header %}
+		    {{ post.header }}
+		    {% else %}
+		    {{ post.title }}
+		    {% endif %}
+		</a>
+		{% for tag in post.tags %}
+		<span class="post-meta">
+                    {{ site.data.tags[tag].name | replace:' ','' }}
+		</span>
+		{% endfor %}
+	        </li>
+	    {% endif %}
+	    {% endif %}
+	    {% endfor %}
+	    {% endfor %}
+	</ul>
+    </li>
+    {% endfor %}
+</ul>

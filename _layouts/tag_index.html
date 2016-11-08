@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="list-group">
+	{% assign tags = site.tags | sort %}
+	{% for tag in tags %}
+	{% if tag[0] contains 'editor' %}
+
+	<a class="list-group-item" href="/tag/{{ tag[0] }}">
+		{{ tag[0] }}
+		<span class="badge">{{ tag[1].size }}</span>
+	</a>
+
+	{% else %}
+
+	<a class="list-group-item disabled" href="#">
+		{{ tag[0] }}
+	</a>
+
+	{% endif %}
+	{% endfor %}
+</div>
+
