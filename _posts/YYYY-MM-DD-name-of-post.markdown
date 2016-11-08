@@ -1,13 +1,10 @@
 ---
 layout: post
-title:  #"* in Emacs"
+title:  "* in Emacs"
 header: ""
 description: ""
-usecase:
-  - 
-  - 
-date:   #2015-06-11 10:51:14
-###author: marcanuy
+date: 2015-06-11 10:51:14
+#author: marcanuy
 tags: 
   - #editor-textmate
   - #package-imenu-mode
@@ -22,28 +19,24 @@ editors:
       description: ""
       url:         ""
 commands:
-  - keys:
-    function: 
-    desc:     "" 
-  - keys: 
-    function: 
+  - keys:     ""
+    function: ""
     desc:     ""
 screencasts:
-  - title: ""
-    usecase:   
-      - 
-      - 
-    video:
-      filename: #"imenu-mode.mp4"
-      type: #mp4
-      width: #740
-      height: #542
-    commands:
-      - keys:
-      function: 
-      desc:     "" 
-    - keys: 
-      function: 
-      desc:     ""
+- title: ""
+  usecase:
+  - action:   ""
+    key:     ""
+    function: ""
+    desc:     ""
+  - action:   ""
+    key:     ""
+    function: ""
+    desc:     ""
+  video:
+    filename: #"imenu-mode.mp4"
+    type: mp4
+    width: 740
+    height: 542
     keys: |
 ---
