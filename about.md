@@ -62,7 +62,7 @@ code is located in [github.com/marcanuy/emacside.com](https://github.com/marcanu
 *[Emacs]: Editor MACroS
 *[elisp]: Emacs Lisp
 
-## Emacs Logo generator
+## Used Emacs Logo
 
 Generated with [jp2a](https://github.com/cslarsen/jp2a) - JPEG to ASCII image
 converter.
