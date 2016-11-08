@@ -1,34 +1,35 @@
 editor-eclipse:
   name: Eclipse
   url: "http://www.eclipse.org/"
-  header: Eclipse features, in Emacs
+  header: Eclipse features in Emacs
 editor-intellij:
   name: IntelliJ IDEA
   url: "https://www.jetbrains.com/idea/"
-  header: IntelliJ features, in Emacs
+  header: IntelliJ features in Emacs
 editor-netbeans:
   name: Netbeans
   url: "http://netbeans.org/"
-  header: Netbeans features, in Emacs
+  header: Netbeans features in Emacs
 editor-phpstorm:
   name: PhpStorm
   url: "https://www.jetbrains.com/phpstorm/help/phpstorm.html"
-  header: PhpStorm features, in Emacs
+  header: PhpStorm features in Emacs
 editor-sublime-text:
   name: Sublime Text
   url: "http://sublimetext.com/"
-  header: Sublime Text features, in Emacs
+  header: Sublime Text features in Emacs
 editor-textmate:
   name: TextMate
   url: "http://macromates.com"
-  header: TextMate features, in Emacs
+  header: TextMate features in Emacs
 editor-vim:
   name: Vim
   url: "http://vim.org"
-  header: Vim features, in Emacs
+  header: Vim features in Emacs
 editor-writeroom:
   name: WriteRoom
   url: "http://www.hogbaysoftware.com/products/writeroom"
+  header: Writeroom features in Emacs
 package-auto-complete:
   urls:
     - "https://github.com/auto-complete/auto-complete"
