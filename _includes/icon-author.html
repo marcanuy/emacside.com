@@ -1,0 +1,6 @@
+{% assign author = site.data.people[page.author] %}
+{% if author.website %}
+<a rel="author" href="{{ author.website }}" title="{{ author.name }}" class="text-muted">
+    <i class="fa fa-user" aria-hidden="true"></i>
+</a>
+{% endif %}

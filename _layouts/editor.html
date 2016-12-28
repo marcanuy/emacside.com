@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+
+<h1 class="post-header">
+    {{ page.title }} features in Emacs
+</h1>
+
+<p>
+    {{ page.summary }} <small><a href="{{page.website}}" rel="nofollow" target="_blank">{{page.website}} <i class="fa fa-external-link" aria-hidden="true"></i></a></small>
+</p>
+<hr />
+
+<div class="list-group">
+    {% for doc in site.documents %}
+    {% comment %} filter documents by this editor {% endcomment %}
+    {% if doc.editors contains page.slug %}
+    <a href="{{doc.url}}" class="list-group-item list-group-item-action">
+	<h5 class="list-group-item-heading">{{doc.title}}</h5>
+	<p class="list-group-item-text">{{doc.editors[page.slug]["description"]}}</p>
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>

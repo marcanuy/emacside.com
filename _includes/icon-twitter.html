@@ -1,0 +1,6 @@
+{% assign author = site.data.people[page.author] %}
+{% if author.twitter_id %}
+<a href="https://twitter.com/{{ author.twitter_id }}" class="text-muted">
+    <i class="fa fa-twitter" aria-hidden="true"></i>
+</a>
+{% endif %}

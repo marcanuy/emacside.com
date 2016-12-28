@@ -10,7 +10,7 @@ twitter_username: emacside
 github_username:  marcanuy/emacside.com
 
 # Outputting
-permalink: none
+permalink: /:categories/:title
 
 # Build settings
 markdown: kramdown
@@ -20,9 +20,9 @@ disqus_id: emacside
 tag:
   page:
     dir: tag
-    title: "%s features, in Emacs"
-    header: "%s features, in Emacs"
-    description: "How to do some of the %s cool tricks in Emacs"
+    title: "%s features in Emacs"
+    header: "%s features in Emacs"
+    description: "How to do some of the %s tricks in Emacs"
     metadesc: "%s tasks equivalents in Emacs"
   index:
     dir: tags
@@ -30,3 +30,34 @@ tag:
     header: ""
     description: ""
     metadesc_format: ""
+
+collections:
+  articles:
+    output: true
+    permalink: /:path/
+  editors:
+    output: true
+    
+defaults:
+  - scope:
+      path: ""
+      type: documents
+    values:
+      layout: post
+      author: marcanuy
+  - scope:
+      path: ""
+      type: editors
+    values:
+      layout: editor
+      
+gems:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-toc
+  
+#jekyll-seo-plugin (and footer)
+twitter:
+  username: emacside #The site's Twitter handle.
+
+

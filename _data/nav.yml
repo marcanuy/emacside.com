@@ -1,0 +1,22 @@
+home:
+  url: /
+  name: Home
+
+about:
+  url: /about
+  name: About
+
+articles:
+  url: /
+  name: Articles
+  subcategories:
+    navigation:
+      url: /navigation
+      name: Emacs navigation features for development
+    #editing:
+      #url: /editing
+      #name: Emacs editing features for development
+      
+editors:
+  url: /editors
+  name: Editors

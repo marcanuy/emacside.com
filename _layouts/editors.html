@@ -1,0 +1,26 @@
+---
+layout: page
+---
+
+<p>{{ page.description }}</p>
+
+<div class="list-group">
+    {% comment %} count docs per editor {% endcomment %}
+    {% for editor in site.editors %}
+    {% unless editor.slug == "index" %}	
+    {% assign docs_count = 0%}
+
+    {% for doc in site.documents %}
+    {% if doc.editors contains editor.slug %}
+    {% assign docs_count = docs_count | plus:'1'%}
+    {% endif %}
+    {% endfor %}
+
+    <a href="{{editor.url}}" class="list-group-item list-group-item-action">
+	<span class="tag tag-default tag-pill float-xs-right">{{ docs_count }}</span>
+	{{editor.title}}
+    </a>
+
+    {% endunless %}
+    {% endfor %}
+</div>

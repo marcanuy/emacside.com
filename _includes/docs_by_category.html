@@ -1,0 +1,88 @@
+{% assign categories = "" | split: "" %}
+
+{% comment%}
+Get all the first level categories of the documents folder (_doc) in the
+array "category"
+{%endcomment%}
+
+{% assign docs = site.documents | sort: "path" %}
+{% for doc in docs %}
+{% assign pageLevel = doc.path | remove_first: "/" | split:"/" | size %}
+{% comment %} remove filename from path {% endcomment %}
+{% assign doc_categories = doc.path | split:"/" %}
+{% comment %} remove _docs from path {% endcomment %}
+{% assign doc_categories = doc_categories | shift %}
+{%comment%}
+if this is a category
+{%endcomment%}
+{% if pageLevel == 2 %}
+{% assign current_category = doc_categories | pop %}
+{% unless categories contains current_category %}
+{% assign categories = categories | push: current_category %}
+{% endunless %}
+{% endif %}
+{% endfor %}
+
+{% comment %}
+Having the list of first level categories, display the documents grouped by category
+For each category, if a document path has the /category/ in its path, then we
+show the document.
+We also count the slashes in each document path to detect only the first level
+documents, e.g.: for /_documents/navigation/my_doc.md then we show documents from
+"navigation" directory only.
+{% endcomment %}
+
+<div>
+    {% for category in categories %}
+    {% assign show_category = false %}
+
+    {% comment %}
+    if we have to filter by category, and the  category is the same as the filtered one,
+    then we show the category.
+    If we don't have to filter, we show all the categories
+    {% endcomment %}
+    
+    {% if include.filter_category and category[0] == include.filter_category %}
+    {% assign show_category = true %}
+    {% endif %}
+    {% unless include.filter_category %}
+    {% assign show_category = true%}
+    {% endunless%}
+
+    {% unless include.filter_category %}
+    <h2><a href="/{{category|first}}">{{ category | first | capitalize }}</a></h2>
+    {% endunless %}
+    
+    {% if show_category %}
+    {% assign categoryInUrl = '/' | append: category[0] | append: '/' %}
+    <div class="list-group">
+	{% for document in site.documents %}
+	
+	{% comment %}
+	we add slashes to each category in the array so we can detect
+	them in the path of the document url
+	{% endcomment %}
+	
+	{% assign pageLevel = document.path | remove_first: "/" | split:"/" | size %}
+
+	{% comment %}
+	if document is in the category, then we show it
+	{% endcomment %}
+	
+	{% if document.path contains categoryInUrl and pageLevel == 2 %}
+	<a class="list-group-item list-group-item-action" href="{{ document.url }}">{{ document.title }}</a>
+	{% for tag in document.tags %}
+	<span class="post-meta">
+            {{ site.data.tags[tag].name | replace:' ','' }}
+	</span>
+	{% endfor %}
+	{% endif %}
+	
+	{% endfor %}
+    </div>
+    <hr />
+    {% endif %}
+    {% endfor %}
+</div>
+
+

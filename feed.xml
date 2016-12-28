@@ -26,5 +26,16 @@ layout: null
         {% endfor %}
       </item>
     {% endfor %}
+    {% for doc in site.documents limit:10 %}
+      <item>
+        <title>{{ doc.title | xml_escape }}</title>
+        <description>{{ doc.content | xml_escape }}</description>
+	{% if doc.date %}
+        <pubDate>{{ doc.date | date_to_rfc822 }}</pubDate>
+	{% endif %}
+        <link>{{ doc.url | prepend: site.baseurl | prepend: site.url }}</link>
+        <guid isPermaLink="true">{{ doc.url | prepend: site.baseurl | prepend: site.url }}</guid>
+      </item>
+    {% endfor %}
   </channel>
 </rss>

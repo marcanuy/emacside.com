@@ -5,32 +5,21 @@ comments: false
 
 <div class="home">
 
-  <h1 class="page-title">Using GNU Emacs as a Development Environment</h1>
-  <hr />
-  <p class="page-content">Tips on how to be more productive with Emacs as an Integrated Development Environment.</p>
-  {% include posts_by_category.html %}
+    <h1 class="page-title">Using GNU Emacs as a Development Environment</h1>
+    <hr />
+    <p class="page-content">Articles focused on Emacs tasks (not packages). Be more productive using Emacs as an Integrated Development Environment.</p>
 
-  <div>
-  <h2>Other editors features in Emacs</h2>
-  <hr />
-  <ul>
-      {% for tag in site.tags %}
-      {% assign tag_id = tag[0] %}
-      {% assign tag_prefix = tag_id | split: '-' | first %}
-      {% if tag_prefix == 'editor' %}
-      <li><a href="/{{ site.tag['page']['dir'] }}/{{ tag[0] }}">{{ site.data.tags[tag_id].name }}</a> <span>{{ tag[1].size }}</span></li>
-      {% endif %}
-      {% endfor %}
-  </ul>
-  </div>
+    {% include docs_by_category.html %}
 
-{% comment %} Show drafts locally when running the server with --drafts {% endcomment %}
-{% for post in site.posts  %}
-{% if post.path contains 'drafts' %}
-<p>
-Draft: <a href="{{ post.url }}">{{post.title}}</a>
-</p>
-{% endif %}
-{% endfor %}
+    <p>Or browse articles by the other <a href="/editors">editors features in Emacs</a>.</p>
 
+    {% comment %} Show drafts locally when running the server with --drafts {% endcomment %}
+    {% for post in site.posts  %}
+    {% if post.path contains 'drafts' %}
+    <p>
+	Draft: <a href="{{ post.url }}">{{post.title}}</a>
+    </p>
+    {% endif %}
+    {% endfor %}
+    
 </div>

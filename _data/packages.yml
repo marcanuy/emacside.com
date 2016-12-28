@@ -1,74 +1,42 @@
-editor-eclipse:
-  name: Eclipse
-  url: "http://www.eclipse.org/"
-  header: Eclipse features in Emacs
-editor-intellij:
-  name: IntelliJ IDEA
-  url: "https://www.jetbrains.com/idea/"
-  header: IntelliJ features in Emacs
-editor-netbeans:
-  name: Netbeans
-  url: "http://netbeans.org/"
-  header: Netbeans features in Emacs
-editor-phpstorm:
-  name: PhpStorm
-  url: "https://www.jetbrains.com/phpstorm/help/phpstorm.html"
-  header: PhpStorm features in Emacs
-editor-sublime-text:
-  name: Sublime Text
-  url: "http://sublimetext.com/"
-  header: Sublime Text features in Emacs
-editor-textmate:
-  name: TextMate
-  url: "http://macromates.com"
-  header: TextMate features in Emacs
-editor-vim:
-  name: Vim
-  url: "http://vim.org"
-  header: Vim features in Emacs
-editor-writeroom:
-  name: WriteRoom
-  url: "http://www.hogbaysoftware.com/products/writeroom"
-  header: Writeroom features in Emacs
-package-auto-complete:
+auto-complete:
   urls:
     - "https://github.com/auto-complete/auto-complete"
     - "http://auto-complete.org/doc/manual.html#basic-usage"
-package-imenu-mode:
+imenu-mode:
   urls:
     - "https://www.gnu.org/software/emacs/manual/html_node/emacs/Imenu.html"
     - "http://www.emacswiki.org/emacs/ImenuMode"
-package-minimap-mode:
+minimap-mode:
   urls:
     - "http://www.emacswiki.org/emacs/MiniMap"
     - "https://github.com/dustinlacewell/emacs-minimap"
-package-neotree:
+neotree:
   urls:
     - "https://github.com/jaypei/emacs-neotree"
     - "http://www.emacswiki.org/emacs/NeoTree"
-package-occur-mode:
+occur-mode:
   urls:
     - "http://emacswiki.org/emacs/OccurMode"
     - "http://www.gnu.org/software/emacs/manual/html_node/emacs/Other-Repeating-Search.html"
-package-project-explorer:
+project-explorer:
   urls:
     - "https://github.com/sabof/project-explorer"
-package-smartparens:
+smartparens:
   urls:
     - "https://github.com/Fuco1/smartparens"
     - "http://www.emacswiki.org/emacs/AutoPairs"
-package-speedbar:
+speedbar:
   urls:
     - "http://www.gnu.org/software/emacs/manual/html_node/emacs/Speedbar.html"
     - "http://www.emacswiki.org/emacs/SpeedBar"
-package-which-function-mode:
+which-function-mode:
   urls:
     - "https://www.gnu.org/software/emacs/manual/html_node/emacs/Which-Function.html"
-package-writeroom-mode:
+writeroom-mode:
   urls:
     - "https://github.com/joostkremers/writeroom-mode"
     - "http://www.emacswiki.org/emacs/WriteRoom"
-package-yasnippets:
+yasnippets:
   urls:
     - "https://github.com/capitaomorte/yasnippet"
     - "http://emacswiki.org/emacs/Yasnippet"
