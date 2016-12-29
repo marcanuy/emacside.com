@@ -17,7 +17,6 @@ Exploring the IDE side of Emacs.
         - [Open Emacs](#open-emacs)
         - [Set right emacs window size](#set-right-emacs-window-size)
         - [Big mouse cursor](#big-mouse-cursor)
-            - [or directly](#or-directly)
         - [Show keystrokes](#show-keystrokes)
             - [Current Configuration](#current-configuration)
         - [Recording screen](#recording-screen)
@@ -28,6 +27,8 @@ Exploring the IDE side of Emacs.
     - [Annotate in screen during video](#annotate-in-screen-during-video)
         - [Install](#install)
         - [To draw on screen](#to-draw-on-screen)
+    - [Locate mouse pointer](#locate-mouse-pointer)
+    - [Emacs Logo for videos](#emacs-logo-for-videos)
         - [Shortcut keys](#shortcut-keys)
     - [Contribute](#contribute)
 
