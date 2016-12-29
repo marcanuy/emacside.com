@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="canonical" href="http://emacside.com/navigation/moving-within-function-definitions-in-current-file/occur/">
+    <link rel="alternate" type="application/rss+xml" title="EmacSide" href="http://emacside.com/feed.xml" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+
+    
+    <!-- Begin Jekyll SEO tag v2.0.0 -->
+<title>Browsing functions in a single file with occur-mode - EmacSide</title>
+<meta property="og:title" content="Browsing functions in a single file with occur-mode" />
+<meta name="description" content="Browsing through functions in source code in one buffer" />
+<meta property="og:description" content="Browsing through functions in source code in one buffer" />
+<link rel="canonical" href="http://emacside.com/navigation/moving-within-function-definitions-in-current-file/occur/" />
+<meta property="og:url" content="http://emacside.com/navigation/moving-within-function-definitions-in-current-file/occur/" />
+<meta property="og:site_name" content="EmacSide" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-12-29T23:10:33+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@emacside" />
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Browsing functions in a single file with occur-mode",
+    "datePublished": "2016-12-29T23:10:33+00:00",
+    "description": "Browsing through functions in source code in one buffer",
+    "url": "http://emacside.com/navigation/moving-within-function-definitions-in-current-file/occur/"
+  }
+</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css" integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous"> 
+
+
+</head>
+
+
+  <body>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-64047109-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+    <header class="site-header mb-2">
+    <nav class="navbar navbar-light bg-faded">
+	<div class="container">
+	    <div class="row">
+		<div class="col-md-5 offset-md-1">
+		    <a class="navbar-brand" href="/">
+			<img src="/assets/emacside-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="Emacside logo">
+			EmacSide
+		    </a>
+		    <ul class="nav navbar-nav">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li class="nav-item dropdown ">
+			    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Articles
+			    </a>
+			    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				
+				<a class="dropdown-item" href="/navigation">
+				    Navigation
+				</a>
+				
+			    </div>
+			</li>
+			
+			
+			
+			
+			
+			
+		    </ul>
+
+		</div>
+	    </div>
+	</div>
+    </nav>
+</header>
+
+
+    <div class="container">
+	<div class="row">
+	    <div class="col-md-10 offset-md-1">
+		<article>
+
+    <header>
+    <h1>Browsing functions in a single file with occur-mode </h1>
+    <div class="pull-right">
+	<small>
+	    <a href="https://github.com/marcanuy/emacside.com/edit/master/_articles/navigation/moving-within-function-definitions-in-current-file/occur.md">
+		<i class="fa fa-pencil" aria-hidden="true"></i> &nbsp;Improve this page
+	    </a>
+	</small>
+    </div>
+    <p class="post-meta">Dec 29, 2016</p>
+</header>
+<p class="lead">Browsing through functions in source code in one buffer</p>
+
+
+    <!-- 16:9 aspect ratio -->
+<div class="embed-responsive embed-responsive-16by9 my-1">
+    <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/r6nKLXBst5s" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+
+    
+    <h2 id="overview">Overview</h2>
+
+<p>When you want to glance at the overall structure of a source code
+file, and are overwhelmed by the file size or the detailed code
+present I find useful two things:</p>
+
+<ul>
+  <li>
+    <p><strong>see a list of the function names</strong> to get an idea of the naming
+conventions and an overview of the file content</p>
+  </li>
+  <li>
+    <p><strong>an easy way to browse functions or procedures</strong> having a quick
+look at their content.</p>
+  </li>
+</ul>
+
+<p>If you can identify any special keyword of how functions are
+defined in the programming language you are using, you can filter
+them using the <kbd>occur</kbd> command.</p>
+
+<p class="alert alert-success"><code class="highlighter-rouge">occur</code> is a standard command that find matches for a regular
+expression and list them in a new buffer.</p>
+
+<h2 id="using-occur">Using occur</h2>
+
+<p>We start by looking for the keyword that defines functions with the
+<code class="highlighter-rouge">occur</code> command <kbd><kbd>M</kbd>-<kbd>s</kbd> <kbd>o</kbd></kbd> so It
+prompt for a regexp and display a list in a new buffer in
+<strong>Occur-mode</strong>.</p>
+
+<p>Then we can work directly from the source code or move to the
+<strong>Occur</strong> buffer.</p>
+
+<h3 id="in-occur-buffer">In Occur buffer</h3>
+
+<p>This is a special buffer where we can move around with
+<kbd><kbd>M</kbd>-<kbd>n</kbd></kbd> and <kbd><kbd>M</kbd>-<kbd>p</kbd></kbd>:</p>
+
+<dl class="alert alert-info">
+  <dt><strong>occur-next</strong> <kbd><kbd>M</kbd>-<kbd>n</kbd></kbd></dt>
+  <dd>Move to the Nth (default 1) next match in an Occur mode buffer.</dd>
+</dl>
+
+<dl class="alert alert-info">
+  <dt><strong>occur-prev</strong> <kbd><kbd>M</kbd>-<kbd>p</kbd></kbd></dt>
+  <dd>Move to the Nth (default 1) previous match in an Occur mode buffer.</dd>
+</dl>
+
+<p>To visit the corresponding position in the buffer <kbd>RET</kbd>:</p>
+
+<dl class="alert alert-info">
+  <dt><strong>occur-mode-goto-occurrence</strong> <kbd>RET</kbd>,<kbd><kbd>C</kbd>-<kbd>c</kbd> <kbd>C</kbd>-<kbd>c</kbd></kbd></dt>
+  <dd>Go to the occurrence on the current line.</dd>
+</dl>
+
+<p>Or visit the position in the buffer but in a new window <kbd><kbd>C</kbd>-<kbd>o</kbd></kbd>:</p>
+
+<dl class="alert alert-info">
+  <dt><strong>occur-mode-display-occurrence</strong> <kbd><kbd>C</kbd>-<kbd>o</kbd></kbd></dt>
+  <dd>Display in another window the occurrence the current line
+describes.</dd>
+</dl>
+
+<p>We can also toggle <strong>Next Error Follow minor</strong> mode with
+<kbd><kbd>C</kbd>-<kbd>c</kbd> <kbd>C</kbd>-<kbd>f</kbd></kbd> 
+which is a feature of the <strong>Compilation mode</strong> “which makes cursor
+motion in the compilation buffer produce automatic source display”, so
+in this case it will automatically update the cursor in the buffer
+where we looked at the functions.</p>
+
+<dl class="alert alert-info">
+  <dt><strong>next-error-follow-minor-mode</strong> <kbd><kbd>C</kbd>-<kbd>c</kbd> <kbd>C</kbd>-<kbd>f</kbd></kbd></dt>
+  <dd>Minor mode for compilation, occur and diff modes.</dd>
+</dl>
+
+<h3 id="from-the-source-code-buffer">From the source code buffer</h3>
+
+<p>From the source code window we can:</p>
+
+<ul>
+  <li>View the occurences scrolling the other window <kbd><kbd>C</kbd>-<kbd>M</kbd>-<kbd>v</kbd></kbd></li>
+</ul>
+
+<dl class="alert alert-info">
+  <dt><strong>scroll-other-window</strong> <kbd><kbd>C</kbd>-<kbd>M</kbd>-<kbd>v</kbd></kbd></dt>
+  <dd>Scroll next window upward ARG lines; or near full screen if no ARG.</dd>
+</dl>
+
+<dl class="alert alert-info">
+  <dt><strong>scroll-other-window-down</strong> <kbd><kbd>C</kbd>-<kbd>M</kbd>-<kbd>S</kbd>-<kbd>v</kbd></kbd></dt>
+  <dd>Scroll the “other window” down.</dd>
+</dl>
+
+<ul>
+  <li>Browse through occurences from the source code window with
+<kbd><kbd>M</kbd>-<kbd>g</kbd> <kbd>n</kbd></kbd> and <kbd><kbd>M</kbd>-<kbd>g</kbd> <kbd>M</kbd>-<kbd>p</kbd></kbd>.
+This approach uses the <strong>Compilation Mode</strong>,  a mode that turns each
+error message in the buffer into a hyperlink, this is why they are
+named with the “error” prefix, in this case they are just <em>occurences</em>.</li>
+</ul>
+
+<dl class="alert alert-info">
+  <dt><strong>next-error</strong> <kbd><kbd>C</kbd>-<kbd>x</kbd> <kbd>`</kbd></kbd>,<kbd><kbd>M</kbd>-<kbd>g</kbd> <kbd>n</kbd></kbd>,<kbd><kbd>M</kbd>-<kbd>g</kbd> <kbd>M</kbd>-<kbd>n</kbd></kbd>.</dt>
+  <dd>Visit next `next-error’ message and corresponding source code.</dd>
+</dl>
+
+<dl class="alert alert-info">
+  <dt><strong>previous-error</strong> <kbd><kbd>M</kbd>-<kbd>g</kbd> <kbd>p</kbd></kbd>,<kbd><kbd>M</kbd>-<kbd>g</kbd> <kbd>M</kbd>-<kbd>p</kbd></kbd></dt>
+  <dd>Visit previous `next-error’ message and corresponding source code.</dd>
+</dl>
+
+<h2 id="notes">Notes</h2>
+
+<p><code class="highlighter-rouge">occur</code> is part of a set of basic editing commands for Emacs included
+in <code class="highlighter-rouge">replace.el</code>, which already comes with Emacs, that makes it always
+available and a quick solution to browse a buffer.</p>
+
+<ul>
+  <li>Replace.el derives from <strong>Special Mode</strong>.</li>
+</ul>
+
+<blockquote>
+  <p>Special mode is a basic major mode for buffers containing text that
+is produced specially by Emacs, rather than directly from a file.
+Major modes derived from Special mode are given a ‘mode-class’
+property of ‘special’.</p>
+</blockquote>
+
+<blockquote>
+  <p>Special mode sets the buffer to read-only.  Its keymap defines
+several common bindings, including <kbd>q</kbd> for ‘quit-window’ and <kbd>g</kbd>
+for ‘revert-buffer’</p>
+</blockquote>
+
+<h2 id="summary">Summary</h2>
+
+<p>Using standard command from Emacs we can adapt them to browse
+functions or other special keywords.</p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+  <li><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Other-Repeating-Search.html">GNU Emacs Manual: Other Repeating Search</a></li>
+  <li><a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation-Mode.html#Compilation-Mode">GNU Emacs Manual: Compilation Mode</a></li>
+</ul>
+
+
+
+</article>
+
+
+	    </div>
+      </div>
+    </div>
+
+    <div class="site-footer">
+    <div id="sharecontainer">
+	<ul>
+	    <li> <div>
+  <a class="twitter-share-button"
+     href="https://twitter.com/share"
+     data-url="http://emacside.com/navigation/moving-within-function-definitions-in-current-file/occur/"
+     data-via="emacside"
+     data-text="Browsing functions in a single file with occur-mode"
+     data-count="vertical">
+    Tweet
+  </a>
+  <script>
+   window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+ </li>
+	    <li> <div>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <!-- Place this tag where you want the +1 button to render. -->
+  <div class="g-plusone" data-size="tall"></div>
+</div>
+ </li>
+	    <li> <div>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));</script>
+
+  <div class="fb-like" data-href="http://emacside.com/navigation/moving-within-function-definitions-in-current-file/occur/" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+</div>
+	</li>
+	</ul>
+    </div>
+    <div class="wrapper">
+	<div id="comments">
+	    
+	</div>
+    </div>
+</div>
+
+<footer class="site-footer bg-faded">
+    <div class="container">
+	<div class="row">
+	    <div class="col-md-5 offset-md-1">
+		<h2 class="footer-heading">EmacSide</h2>
+		<ul class="social-media-list">
+		    <li>
+			<i class="fa fa-envelope text-muted" aria-hidden="true"></i>
+			<a href="mailto:hi@emacside.com">hi@emacside.com</a>
+		    </li>
+		    
+		    <li>
+			<i class="fa fa-github text-muted" aria-hidden="true"></i>
+			<a href="https://github.com/marcanuy/emacside.com" target="_blank">
+			    <span class="username">marcanuy/emacside.com</span>
+			</a>
+		    </li>
+		    
+
+		    
+		    <li>
+			<span class="fa fa-twitter text-muted"></span>
+			<a href="https://twitter.com/emacside" target="_blank">
+			    <span class="username">@emacside</span>
+			</a>
+		    </li>
+		    
+		</ul>
+
+	    </div>
+	    <div class="col-md-5">
+		<div class="">
+		    <p class="text">Exploring the IDE side of Emacs. Common use cases and popular tasks among IDEs performed with Emacs.
+</p>
+		    <nav class="navbar navbar-light">
+			<ul class="nav navbar-nav">
+			    
+			    
+			    
+			    <li class="nav-item ">
+				<a class="nav-link" href="/">Home</a>
+			    </li>
+			    
+			    
+			    
+			    <li class="nav-item ">
+				<a class="nav-link" href="/about">About</a>
+			    </li>
+			    
+			    
+			    
+			    <li class="nav-item ">
+				<a class="nav-link" href="/">Articles</a>
+			    </li>
+			    
+			    
+			    
+			    <li class="nav-item ">
+				<a class="nav-link" href="/editors">Editors</a>
+			    </li>
+			    
+			</ul>
+		    </nav>
+		</div>
+		
+	    </div>
+	</div>
+    </div>
+</footer>
+
+
+
+
+    <!-- Bootstrap core JavaScript
+	 ================================================== -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>

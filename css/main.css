@@ -220,7 +220,8 @@ pre {
   text-align: center; }
   #sharecontainer > ul > li {
     display: inline-block;
-    padding-right: 1em; }
+    padding-right: 1em;
+    vertical-align: top; }
   #sharecontainer > ul > li a {
     text-decoration: none;
     padding: .2em 1em;

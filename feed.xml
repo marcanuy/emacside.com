@@ -6,88 +6,263 @@
 </description>
     <link>http://emacside.com/</link>
     <atom:link href="http://emacside.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 11 Nov 2016 14:15:35 +0000</pubDate>
-    <lastBuildDate>Fri, 11 Nov 2016 14:15:35 +0000</lastBuildDate>
+    <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+    <lastBuildDate>Thu, 29 Dec 2016 23:10:33 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
-      <item>
-        <title>Code minimap in Emacs</title>
-        <description>
-</description>
-        <pubDate>Tue, 16 Jun 2015 14:10:11 +0000</pubDate>
-        <link>http://emacside.com/navigation/code-minimap.html</link>
-        <guid isPermaLink="true">http://emacside.com/navigation/code-minimap.html</guid>
-        
-        <category>editor-sublime-text</category>
-        
-        <category>package-minimap-mode</category>
-        
-        
-        <category>navigation</category>
-        
-      </item>
-    
-      <item>
-        <title>Parens Pairs in Emacs</title>
-        <description>
-</description>
-        <pubDate>Tue, 16 Jun 2015 11:31:14 +0000</pubDate>
-        <link>http://emacside.com/editing/parens-pairs.html</link>
-        <guid isPermaLink="true">http://emacside.com/editing/parens-pairs.html</guid>
-        
-        <category>editor-phpstorm</category>
-        
-        <category>editor-textmate</category>
-        
-        <category>package-smartparens</category>
-        
-        
-        <category>editing</category>
-        
-      </item>
     
       <item>
         <title>Moving between functions within a file in Emacs</title>
         <description>
 </description>
+	
         <pubDate>Thu, 11 Jun 2015 10:51:14 +0000</pubDate>
-        <link>http://emacside.com/navigation/moving-within-function-definitions-in-current-file.html</link>
-        <guid isPermaLink="true">http://emacside.com/navigation/moving-within-function-definitions-in-current-file.html</guid>
-        
-        <category>editor-intellij</category>
-        
-        <category>editor-textmate</category>
-        
-        <category>editor-vim</category>
-        
-        <category>package-imenu-mode</category>
-        
-        <category>package-which-function-mode</category>
-        
-        <category>package-occur-mode</category>
-        
-        
-        <category>navigation</category>
-        
+	
+        <link>http://emacside.com/navigation/moving-within-function-definitions-in-current-file/</link>
+        <guid isPermaLink="true">http://emacside.com/navigation/moving-within-function-definitions-in-current-file/</guid>
       </item>
     
       <item>
-        <title>Distraction-free writing in Emacs</title>
+        <title>Navigation</title>
+        <description></description>
+	
+        <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+	
+        <link>http://emacside.com/navigation/</link>
+        <guid isPermaLink="true">http://emacside.com/navigation/</guid>
+      </item>
+    
+      <item>
+        <title>Browsing functions in a single file with occur-mode</title>
+        <description>&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;When you want to glance at the overall structure of a source code
+file, and are overwhelmed by the file size or the detailed code
+present I find useful two things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;see a list of the function names&lt;/strong&gt; to get an idea of the naming
+conventions and an overview of the file content&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;an easy way to browse functions or procedures&lt;/strong&gt; having a quick
+look at their content.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you can identify any special keyword of how functions are
+defined in the programming language you are using, you can filter
+them using the &lt;kbd&gt;occur&lt;/kbd&gt; command.&lt;/p&gt;
+
+&lt;p class=&quot;alert alert-success&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;occur&lt;/code&gt; is a standard command that find matches for a regular
+expression and list them in a new buffer.&lt;/p&gt;
+
+&lt;h2 id=&quot;using-occur&quot;&gt;Using occur&lt;/h2&gt;
+
+&lt;p&gt;We start by looking for the keyword that defines functions with the
+&lt;code class=&quot;highlighter-rouge&quot;&gt;occur&lt;/code&gt; command &lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;s&lt;/kbd&gt; &lt;kbd&gt;o&lt;/kbd&gt;&lt;/kbd&gt; so It
+prompt for a regexp and display a list in a new buffer in
+&lt;strong&gt;Occur-mode&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then we can work directly from the source code or move to the
+&lt;strong&gt;Occur&lt;/strong&gt; buffer.&lt;/p&gt;
+
+&lt;h3 id=&quot;in-occur-buffer&quot;&gt;In Occur buffer&lt;/h3&gt;
+
+&lt;p&gt;This is a special buffer where we can move around with
+&lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;n&lt;/kbd&gt;&lt;/kbd&gt; and &lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;p&lt;/kbd&gt;&lt;/kbd&gt;:&lt;/p&gt;
+
+&lt;dl class=&quot;alert alert-info&quot;&gt;
+  &lt;dt&gt;&lt;strong&gt;occur-next&lt;/strong&gt; &lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;n&lt;/kbd&gt;&lt;/kbd&gt;&lt;/dt&gt;
+  &lt;dd&gt;Move to the Nth (default 1) next match in an Occur mode buffer.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;dl class=&quot;alert alert-info&quot;&gt;
+  &lt;dt&gt;&lt;strong&gt;occur-prev&lt;/strong&gt; &lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;p&lt;/kbd&gt;&lt;/kbd&gt;&lt;/dt&gt;
+  &lt;dd&gt;Move to the Nth (default 1) previous match in an Occur mode buffer.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;To visit the corresponding position in the buffer &lt;kbd&gt;RET&lt;/kbd&gt;:&lt;/p&gt;
+
+&lt;dl class=&quot;alert alert-info&quot;&gt;
+  &lt;dt&gt;&lt;strong&gt;occur-mode-goto-occurrence&lt;/strong&gt; &lt;kbd&gt;RET&lt;/kbd&gt;,&lt;kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;c&lt;/kbd&gt; &lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;c&lt;/kbd&gt;&lt;/kbd&gt;&lt;/dt&gt;
+  &lt;dd&gt;Go to the occurrence on the current line.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Or visit the position in the buffer but in a new window &lt;kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;o&lt;/kbd&gt;&lt;/kbd&gt;:&lt;/p&gt;
+
+&lt;dl class=&quot;alert alert-info&quot;&gt;
+  &lt;dt&gt;&lt;strong&gt;occur-mode-display-occurrence&lt;/strong&gt; &lt;kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;o&lt;/kbd&gt;&lt;/kbd&gt;&lt;/dt&gt;
+  &lt;dd&gt;Display in another window the occurrence the current line
+describes.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;We can also toggle &lt;strong&gt;Next Error Follow minor&lt;/strong&gt; mode with
+&lt;kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;c&lt;/kbd&gt; &lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;f&lt;/kbd&gt;&lt;/kbd&gt; 
+which is a feature of the &lt;strong&gt;Compilation mode&lt;/strong&gt; “which makes cursor
+motion in the compilation buffer produce automatic source display”, so
+in this case it will automatically update the cursor in the buffer
+where we looked at the functions.&lt;/p&gt;
+
+&lt;dl class=&quot;alert alert-info&quot;&gt;
+  &lt;dt&gt;&lt;strong&gt;next-error-follow-minor-mode&lt;/strong&gt; &lt;kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;c&lt;/kbd&gt; &lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;f&lt;/kbd&gt;&lt;/kbd&gt;&lt;/dt&gt;
+  &lt;dd&gt;Minor mode for compilation, occur and diff modes.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h3 id=&quot;from-the-source-code-buffer&quot;&gt;From the source code buffer&lt;/h3&gt;
+
+&lt;p&gt;From the source code window we can:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;View the occurences scrolling the other window &lt;kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;v&lt;/kbd&gt;&lt;/kbd&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;dl class=&quot;alert alert-info&quot;&gt;
+  &lt;dt&gt;&lt;strong&gt;scroll-other-window&lt;/strong&gt; &lt;kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;v&lt;/kbd&gt;&lt;/kbd&gt;&lt;/dt&gt;
+  &lt;dd&gt;Scroll next window upward ARG lines; or near full screen if no ARG.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;dl class=&quot;alert alert-info&quot;&gt;
+  &lt;dt&gt;&lt;strong&gt;scroll-other-window-down&lt;/strong&gt; &lt;kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;S&lt;/kbd&gt;-&lt;kbd&gt;v&lt;/kbd&gt;&lt;/kbd&gt;&lt;/dt&gt;
+  &lt;dd&gt;Scroll the “other window” down.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Browse through occurences from the source code window with
+&lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;g&lt;/kbd&gt; &lt;kbd&gt;n&lt;/kbd&gt;&lt;/kbd&gt; and &lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;g&lt;/kbd&gt; &lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;p&lt;/kbd&gt;&lt;/kbd&gt;.
+This approach uses the &lt;strong&gt;Compilation Mode&lt;/strong&gt;,  a mode that turns each
+error message in the buffer into a hyperlink, this is why they are
+named with the “error” prefix, in this case they are just &lt;em&gt;occurences&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;dl class=&quot;alert alert-info&quot;&gt;
+  &lt;dt&gt;&lt;strong&gt;next-error&lt;/strong&gt; &lt;kbd&gt;&lt;kbd&gt;C&lt;/kbd&gt;-&lt;kbd&gt;x&lt;/kbd&gt; &lt;kbd&gt;`&lt;/kbd&gt;&lt;/kbd&gt;,&lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;g&lt;/kbd&gt; &lt;kbd&gt;n&lt;/kbd&gt;&lt;/kbd&gt;,&lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;g&lt;/kbd&gt; &lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;n&lt;/kbd&gt;&lt;/kbd&gt;.&lt;/dt&gt;
+  &lt;dd&gt;Visit next `next-error’ message and corresponding source code.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;dl class=&quot;alert alert-info&quot;&gt;
+  &lt;dt&gt;&lt;strong&gt;previous-error&lt;/strong&gt; &lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;g&lt;/kbd&gt; &lt;kbd&gt;p&lt;/kbd&gt;&lt;/kbd&gt;,&lt;kbd&gt;&lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;g&lt;/kbd&gt; &lt;kbd&gt;M&lt;/kbd&gt;-&lt;kbd&gt;p&lt;/kbd&gt;&lt;/kbd&gt;&lt;/dt&gt;
+  &lt;dd&gt;Visit previous `next-error’ message and corresponding source code.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;h2 id=&quot;notes&quot;&gt;Notes&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;occur&lt;/code&gt; is part of a set of basic editing commands for Emacs included
+in &lt;code class=&quot;highlighter-rouge&quot;&gt;replace.el&lt;/code&gt;, which already comes with Emacs, that makes it always
+available and a quick solution to browse a buffer.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Replace.el derives from &lt;strong&gt;Special Mode&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Special mode is a basic major mode for buffers containing text that
+is produced specially by Emacs, rather than directly from a file.
+Major modes derived from Special mode are given a ‘mode-class’
+property of ‘special’.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Special mode sets the buffer to read-only.  Its keymap defines
+several common bindings, including &lt;kbd&gt;q&lt;/kbd&gt; for ‘quit-window’ and &lt;kbd&gt;g&lt;/kbd&gt;
+for ‘revert-buffer’&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;Using standard command from Emacs we can adapt them to browse
+functions or other special keywords.&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gnu.org/software/emacs/manual/html_node/emacs/Other-Repeating-Search.html&quot;&gt;GNU Emacs Manual: Other Repeating Search&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.gnu.org/software/emacs/manual/html_node/emacs/Compilation-Mode.html#Compilation-Mode&quot;&gt;GNU Emacs Manual: Compilation Mode&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+	
+        <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+	
+        <link>http://emacside.com/navigation/moving-within-function-definitions-in-current-file/occur/</link>
+        <guid isPermaLink="true">http://emacside.com/navigation/moving-within-function-definitions-in-current-file/occur/</guid>
+      </item>
+    
+      <item>
+        <title>Eclipse</title>
         <description>
 </description>
-        <pubDate>Tue, 02 Jun 2015 10:51:14 +0000</pubDate>
-        <link>http://emacside.com/editing/distraction-free-mode.html</link>
-        <guid isPermaLink="true">http://emacside.com/editing/distraction-free-mode.html</guid>
-        
-        <category>editor-sublime-text</category>
-        
-        <category>editor-writeroom</category>
-        
-        <category>package-writeroom-mode</category>
-        
-        
-        <category>editing</category>
-        
+	
+        <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+	
+        <link>http://emacside.com/editors/eclipse</link>
+        <guid isPermaLink="true">http://emacside.com/editors/eclipse</guid>
+      </item>
+    
+      <item>
+        <title>Other editors</title>
+        <description></description>
+	
+        <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+	
+        <link>http://emacside.com/editors/index</link>
+        <guid isPermaLink="true">http://emacside.com/editors/index</guid>
+      </item>
+    
+      <item>
+        <title>IntelliJ IDEA</title>
+        <description>
+</description>
+	
+        <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+	
+        <link>http://emacside.com/editors/intellij</link>
+        <guid isPermaLink="true">http://emacside.com/editors/intellij</guid>
+      </item>
+    
+      <item>
+        <title>Netbeans</title>
+        <description>
+</description>
+	
+        <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+	
+        <link>http://emacside.com/editors/netbeans</link>
+        <guid isPermaLink="true">http://emacside.com/editors/netbeans</guid>
+      </item>
+    
+      <item>
+        <title>PhpStorm</title>
+        <description>
+</description>
+	
+        <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+	
+        <link>http://emacside.com/editors/phpstorm</link>
+        <guid isPermaLink="true">http://emacside.com/editors/phpstorm</guid>
+      </item>
+    
+      <item>
+        <title>Sublime Text</title>
+        <description>
+</description>
+	
+        <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+	
+        <link>http://emacside.com/editors/sublime-text</link>
+        <guid isPermaLink="true">http://emacside.com/editors/sublime-text</guid>
+      </item>
+    
+      <item>
+        <title>TextMate</title>
+        <description>
+</description>
+	
+        <pubDate>Thu, 29 Dec 2016 23:10:33 +0000</pubDate>
+	
+        <link>http://emacside.com/editors/textmate</link>
+        <guid isPermaLink="true">http://emacside.com/editors/textmate</guid>
       </item>
     
   </channel>
